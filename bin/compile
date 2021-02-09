@@ -38,15 +38,14 @@ topic "Cloning dxportal $DXPORTAL_VERSION tag"
 git clone  --depth 1 --branch ${DXPORTAL_VERSION} https://${GITHUB_AUTH_TOKEN}:x-oauth-basic@github.com/hossapp/dxportal.git /tmp/dxportal | indent
 
 topic "Copy customer files"
-rsync -av --progress $BUILD_DIR/* /tmp/dxportal --exclude package.json --exclude package-lock.json | indent
+rsync -av --progress $BUILD_DIR/ /tmp/dxportal/ --exclude package.json --exclude package-lock.json | indent
 
 # add customer dependencies to dxportal package.json
 topic "Merge dependencies"
 jq --argjson deps "$(jq ".dependencies" $BUILD_DIR/package.json)" '.dependencies += $deps' /tmp/dxportal/package.json > /tmp/dxportal/package.json_tmp && mv /tmp/dxportal/package.json_tmp /tmp/dxportal/package.json
-shopt -s extglob
 
 topic "Moving dxportal files to top level"
 rsync -av --progress /tmp/dxportal/ $BUILD_DIR/ | indent
-ls -ahl $BUILD_DIR
-cat /tmp/dxportal/package.json
-cat $BUILD_DIR/package.json
+#ls -ahl $BUILD_DIR
+#cat /tmp/dxportal/package.json
+#cat $BUILD_DIR/package.json
