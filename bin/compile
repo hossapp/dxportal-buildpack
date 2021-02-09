@@ -46,6 +46,6 @@ jq --argjson deps "$(jq ".dependencies" $BUILD_DIR/package.json)" '.dependencies
 shopt -s extglob
 
 topic "Moving dxportal files to top level"
-rsync -av --progress /tmp/dxportal/* $BUILD_DIR | indent
+rsync -av --progress /tmp/dxportal $BUILD_DIR | indent
 ls -ahl $BUILD_DIR
 cat $BUILD_DIR/package.json
