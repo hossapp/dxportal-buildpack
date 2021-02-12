@@ -34,10 +34,10 @@ function indent() {
 
 DXPORTAL_VERSION=`cat $ENV_DIR/DXPORTAL_VERSION`
 GITHUB_AUTH_TOKEN=`cat $ENV_DIR/GITHUB_AUTH_TOKEN`
-topic "Cloning dxportal $DXPORTAL_VERSION tag"
+topic "Cloning dxportal $DXPORTAL_VERSION tag to /tmp/dxportal"
 git clone  --depth 1 --branch ${DXPORTAL_VERSION} https://${GITHUB_AUTH_TOKEN}:x-oauth-basic@github.com/hossapp/dxportal.git /tmp/dxportal | indent
 
-topic "Copy customer files"
+topic "Copy dxportal into $BUILD_DIR"
 rsync -raz --ignore-existing --progress /tmp/dxportal $BUILD_DIR/ --exclude .git | indent
 
 # add customer dependencies to dxportal package.json
