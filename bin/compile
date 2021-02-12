@@ -46,7 +46,7 @@ rsync -raz $BUILD_DIR/ /tmp/dxportal/ --exclude package.json --exclude package-l
 #jq --argjson deps "$(jq ".dependencies" $BUILD_DIR/package.json)" '.dependencies += $deps' /tmp/dxportal/package.json > /tmp/dxportal/package.json_tmp && mv /tmp/dxportal/package.json_tmp /tmp/dxportal/package.json
 
 topic "Moving dxportal files to top level"
-rsync -raz --progress /tmp/dxportal/ $BUILD_DIR/ | indent
+rsync -raz /tmp/dxportal/ $BUILD_DIR/ | indent
 
 
 topic "Installing dx-script into /tmp/dx-scripts"
@@ -56,4 +56,3 @@ echo '/tmp/dx-scripts/bin/dx.js' > $ENV_DIR/DX_SCRIPTS_LOCATION
 #ls -ahl $BUILD_DIR
 #cat /tmp/dxportal/package.json
 cat $BUILD_DIR/package.json
-/tmp/dx-scripts/bin/dx.js
