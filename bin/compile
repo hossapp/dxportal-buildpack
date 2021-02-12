@@ -55,4 +55,4 @@ echo '/tmp/dx-scripts/bin/dx.js' > $ENV_DIR/DX_SCRIPTS_LOCATION
 ##rsync -av --progress /tmp/dxportal/ $BUILD_DIR/ | indent
 #ls -ahl $BUILD_DIR
 ##cat /tmp/dxportal/package.json
-#cat $BUILD_DIR/package.json
+cat $BUILD_DIR/package.json
