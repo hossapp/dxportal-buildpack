@@ -37,8 +37,9 @@ DXPORTAL_VERSION=`cat $ENV_DIR/DXPORTAL_VERSION`
 GITHUB_AUTH_TOKEN=`cat $ENV_DIR/GITHUB_AUTH_TOKEN`
 
 topic "Installing dx-script into $BUILD_DIR"
-echo '//npm.pkg.github.com/:_authToken=$GITHUB_AUTH_TOKEN'
-npm install -g @hossapp/dx-script | indent
+git clone  --depth 1 --branch master https://${GITHUB_AUTH_TOKEN}:x-oauth-basic@github.com/hossapp/dx-scripts.git /tmp/dx-scripts | indent
+echo '/tmp/dx-scripts/bin/dx.js' > $ENV_DIR/DX_SCRIPTS_LOCATION
+
 #
 #topic "Cloning dxportal $DXPORTAL_VERSION tag to /tmp/dxportal"
 #git clone  --depth 1 --branch ${DXPORTAL_VERSION} https://${GITHUB_AUTH_TOKEN}:x-oauth-basic@github.com/hossapp/dxportal.git /tmp/dxportal | indent
