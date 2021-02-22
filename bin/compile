@@ -50,7 +50,7 @@ rsync -raz /tmp/dxportal/ $BUILD_DIR/ | indent
 
 
 topic "Installing dx-script into /tmp/dx-scripts"
-git clone  --depth 1 --branch master https://${GITHUB_AUTH_TOKEN}:x-oauth-basic@github.com/hossapp/dx-scripts.git /tmp/dx-scripts | indent
+git clone  --depth 1 --branch v1.0.3 https://${GITHUB_AUTH_TOKEN}:x-oauth-basic@github.com/hossapp/dx-scripts.git /tmp/dx-scripts | indent
 echo '/tmp/dx-scripts/bin/dx.js' > $ENV_DIR/DX_SCRIPTS_LOCATION
 
 #ls -ahl $BUILD_DIR
