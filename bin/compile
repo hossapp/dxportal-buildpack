@@ -60,4 +60,5 @@ echo '/tmp/dx-scripts/bin/dx.js' > $ENV_DIR/DX_SCRIPTS_LOCATION
 
 #ls -ahl $BUILD_DIR
 #cat /tmp/dxportal/package.json
+cp .npmrc $BUILD_DIR/.npmrc
 cat $BUILD_DIR/.npmrc
