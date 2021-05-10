@@ -60,7 +60,7 @@ echo '/tmp/dx-scripts/bin/dx.js' > $ENV_DIR/DX_SCRIPTS_LOCATION
 
 #ls -ahl $BUILD_DIR
 #cat /tmp/dxportal/package.json
-cat <<EOT >> $BUILD_DIR/.npmrc
+cat <<EOT > $BUILD_DIR/.npmrc
 //registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}
 @hossapp:registry=https://npm.pkg.github.com/hossapp
 //npm.pkg.github.com/:_authToken=${GITHUB_AUTH_TOKEN}
