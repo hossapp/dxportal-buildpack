@@ -37,7 +37,7 @@ GITHUB_AUTH_TOKEN=`cat $ENV_DIR/GITHUB_AUTH_TOKEN`
 if test -f "$ENV_DIR/DXSCRIPTS_VERSION"; then
  DXSCRIPTS_VERSION=`cat $ENV_DIR/DXSCRIPTS_VERSION`
 else
- DXSCRIPTS_VERSION="v1.0.4"
+ DXSCRIPTS_VERSION="v1.1.1"
 fi
 
 git config --global advice.detachedHead false
