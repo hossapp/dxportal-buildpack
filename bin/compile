@@ -48,8 +48,9 @@ topic "Copy customer files"
 rsync -raz $BUILD_DIR/ /tmp/dxportal/ --exclude package.json --exclude package-lock.json | indent
 
 # add customer dependencies to dxportal package.json
-#topic "Merge dependencies"
+topic "Merge dependencies"
 jq --argjson deps "$(jq ".dependencies" $BUILD_DIR/package.json)" '.dependencies += $deps' /tmp/dxportal/package.json > /tmp/dxportal/package.json_tmp && mv /tmp/dxportal/package.json_tmp /tmp/dxportal/package.json
+rm -rf  /tmp/dxportal/package-lock.json
 
 topic "Moving dxportal files to top level"
 rsync -raz /tmp/dxportal/ $BUILD_DIR/ | indent
